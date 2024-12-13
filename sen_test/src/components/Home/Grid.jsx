@@ -7,8 +7,8 @@ import { Reviews } from "./Reviews";
 
 export const Grid = () => {
   return (
-    <div className="px-1 grid gap-3 grid-cols-12">
-      <div className="rounded col-span-9 overflow-hidden border border-black h-[calc(100vh-64px)] grid gap-3 grid-cols-12 grid-rows-12">
+    <div className="grid gap-3 grid-cols-12">
+      <div className="rounded col-span-9 overflow-hidden border border-black h-[calc(100vh-66px)] grid gap-3 grid-cols-12 grid-rows-12">
         <Menu />
         <Request />
       </div>
