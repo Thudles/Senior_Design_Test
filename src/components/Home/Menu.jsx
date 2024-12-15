@@ -1,5 +1,12 @@
 import React from "react";
+import { Request } from "./Request";
 
-export const Menu = () => {
-  return <div className="col-span-12 row-span-8">Menu</div>;
+export const Menu = ({ colspan, rowspan }) => {
+  return (
+    <div
+      className={` ${colspan} ${rowspan}  rounded-xl border border-black bg-secondary p-3 h-[100%]  `}
+    >
+      Menu
+    </div>
+  );
 };
