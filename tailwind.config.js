@@ -12,6 +12,11 @@ export default {
       },
       colors: {
         projblack: "#111111",
+        primary: "#FE5C36",
+        secondary: "#f1efef",
+      },
+      fontFamily: {
+        bubbly: ['"Bubblegum Sans"', "cursive"], // Add your font here
       },
     },
   },
