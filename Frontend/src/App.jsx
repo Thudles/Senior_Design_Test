@@ -6,6 +6,10 @@ import { Account } from "./Pages/Account";
 import { Menu } from "./Pages/Menu";
 import { Reviews } from "./Pages/Reviews";
 import { Request } from "./Pages/Request";
+import axiox from "axios";
+
+axiox.defaults.baseURL = "http://localhost:8000";
+axiox.defaults.withCredentials = true;
 
 const App = () => {
   return (
