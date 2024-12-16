@@ -72,7 +72,7 @@ export const Home = () => {
                   <Request colspan={"col-span-12"} rowspan={"row-span-3"} />
                 </Panel>
 
-                <PanelResizeHandle className="h-2" />
+                <PanelResizeHandle className="h-1" />
 
                 <Panel
                   defaultSize={80}
@@ -88,7 +88,7 @@ export const Home = () => {
               </PanelGroup>
             </Panel>
 
-            <PanelResizeHandle className="w-2" />
+            <PanelResizeHandle className="w-1" />
 
             {/* Balance and Review Panels */}
             <Panel
@@ -107,7 +107,7 @@ export const Home = () => {
                   <Balance bgColor={"bg-secondary"} />
                 </Panel>
 
-                <PanelResizeHandle className="h-2" />
+                <PanelResizeHandle className="h-1" />
 
                 <Panel
                   defaultSize={33}
