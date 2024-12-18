@@ -8,7 +8,7 @@ import { Reviews } from "./Pages/Reviews";
 import { Request } from "./Pages/Request";
 import axiox from "axios";
 
-axiox.defaults.baseURL = "http://localhost:8000";
+axiox.defaults.baseURL = "http://localhost:8000/api";
 axiox.defaults.withCredentials = true;
 
 const App = () => {
