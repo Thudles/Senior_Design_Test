@@ -8,9 +8,9 @@ import { MenuLoggedout } from "../../components/Home/MenuLoggedout";
 export const Home_logedout = () => {
   return (
     <div className="">
-      <div className="flex  gap-2">
+      <div className="flex flex-col gap-2">
         <Navbar />
-        <div className=" bg-black rounded-lg h-[calc(100vh-48px)]  p-2 overflow-y-auto w-[100%]">
+        <div className=" bg-white rounded-lg h-[calc(100vh-48px)]  p-2 overflow-y-auto w-[100%]">
           <div className="grid gap-3 grid-cols-12 grid-rows-10 h-[calc(100vh-66px)]">
             <div className=" col-span-12 row-span-6 overflow-hidden">
               <MenuLoggedout />

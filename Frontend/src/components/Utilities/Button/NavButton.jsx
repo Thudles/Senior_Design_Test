@@ -4,7 +4,7 @@ export const NavButton = ({ logo, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={`bg-white cursor-pointer hover:scale-110 duration-300 p-5 rounded-md relative z-10 font-bold text-1md`}
+      className={`inline-block border-2 px-2 py-1 text-xs font-semibold uppercase cursor-pointer border-neutral-950 bg-neutral-200 text-neutral-950 transition-colors hover:bg-neutral-300`}
     >
       {logo}
     </button>

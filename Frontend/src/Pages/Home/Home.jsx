@@ -51,9 +51,9 @@ export const Home = () => {
 
   return (
     <div className="">
-      <div className="flex gap-2 justify-between">
-        <Navbar />
-        <div className="rounded-lg h-[calc(100vh-26px)] overflow-y-auto w-[100%]">
+      <Navbar />
+      <div className="">
+        <div className="rounded-lg h-[calc(100vh-64px)] overflow-y-auto w-[100%] mt-[51px]">
           <PanelGroup direction="horizontal">
             {/* Request and Menu Panels */}
             <Panel
