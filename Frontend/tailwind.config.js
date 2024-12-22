@@ -12,7 +12,7 @@ export default {
       },
       colors: {
         projblack: "#111111",
-        primary: "#7c3aed",
+        primary: "#6d14e0",
         secondary: "#ed3a51",
       },
       fontFamily: {
