@@ -51,78 +51,75 @@ export const Home = () => {
 
   return (
     <div className="">
-      <Navbar />
-      <div className="">
-        <div className="rounded-lg h-[calc(100vh-64px)] overflow-y-auto w-[100%] mt-[51px]">
-          <PanelGroup direction="horizontal">
-            {/* Request and Menu Panels */}
-            <Panel
-              defaultSize={75}
-              maxSize={SIZE_THRESHOLD + 1}
-              onResize={(sizes) => {
-                setOuterPanelSizes(sizes); // Track sizes of outer panels
-              }}
-            >
-              <PanelGroup direction="vertical">
-                <Panel
-                  defaultSize={20}
-                  maxSize={SIZE_THRESHOLD + 1}
-                  onResize={(size) => setRequestPanelSize(size)}
-                >
-                  <Request colspan={"col-span-12"} rowspan={"row-span-3"} />
-                </Panel>
+      <Navbar title={"home"} />
 
-                <PanelResizeHandle className="h-0.5" />
+      <div className="rounded-lg h-[calc(100vh-64px)] overflow-y-auto w-[100%] mt-[51px]">
+        <PanelGroup direction="horizontal">
+          {/* Request and Menu Panels */}
+          <Panel
+            defaultSize={75}
+            maxSize={SIZE_THRESHOLD + 1}
+            onResize={(sizes) => {
+              setOuterPanelSizes(sizes); // Track sizes of outer panels
+            }}
+          >
+            <PanelGroup direction="vertical">
+              <Panel
+                defaultSize={80}
+                maxSize={SIZE_THRESHOLD + 1}
+                onResize={(size) => setMenuPanelSize(size)}
+              >
+                <Menu
+                  colspan={"col-span-12"}
+                  rowspan={"row-span-9"}
+                  color={"bg-primary"}
+                />
+              </Panel>
 
-                <Panel
-                  defaultSize={80}
-                  maxSize={SIZE_THRESHOLD + 1}
-                  onResize={(size) => setMenuPanelSize(size)}
-                >
-                  <Menu
-                    colspan={"col-span-12"}
-                    rowspan={"row-span-9"}
-                    color={"bg-primary"}
-                  />
-                </Panel>
-              </PanelGroup>
-            </Panel>
+              <PanelResizeHandle className="h-0.5" />
 
-            <PanelResizeHandle className="w-0.5" />
+              <Panel
+                defaultSize={20}
+                maxSize={SIZE_THRESHOLD + 1}
+                onResize={(size) => setRequestPanelSize(size)}
+              >
+                <Request colspan={"col-span-12"} rowspan={"row-span-3"} />
+              </Panel>
+            </PanelGroup>
+          </Panel>
 
-            {/* Balance and Review Panels */}
-            <Panel
-              defaultSize={25}
-              onResize={(sizes) => {
-                setOuterPanelSize(sizes); // Track sizes of outer panels
-              }}
-              maxSize={SIZE_THRESHOLD + 1}
-            >
-              <PanelGroup direction="vertical">
-                <Panel
-                  defaultSize={67}
-                  maxSize={SIZE_THRESHOLD + 1}
-                  onResize={(size) => setBalancePanelSize(size)}
-                >
-                  <Balance bgColor={"bg-secondary"} />
-                </Panel>
+          <PanelResizeHandle className="w-0.5" />
 
-                <PanelResizeHandle className="h-0.5" />
+          {/* Balance and Review Panels */}
+          <Panel
+            defaultSize={25}
+            onResize={(sizes) => {
+              setOuterPanelSize(sizes); // Track sizes of outer panels
+            }}
+            maxSize={SIZE_THRESHOLD + 1}
+          >
+            <PanelGroup direction="vertical">
+              <Panel
+                defaultSize={67}
+                maxSize={SIZE_THRESHOLD + 1}
+                onResize={(size) => setBalancePanelSize(size)}
+              >
+                <Balance bgColor={"bg-secondary"} />
+              </Panel>
 
-                <Panel
-                  defaultSize={33}
-                  maxSize={SIZE_THRESHOLD + 1}
-                  onResize={(size) => setReviewPanelSize(size)}
-                >
-                  <Reviews color={"bg-projblack"} />
-                </Panel>
-              </PanelGroup>
-            </Panel>
-          </PanelGroup>
-        </div>
+              <PanelResizeHandle className="h-0.5" />
+
+              <Panel
+                defaultSize={33}
+                maxSize={SIZE_THRESHOLD + 1}
+                onResize={(size) => setReviewPanelSize(size)}
+              >
+                <Reviews color={"bg-projblack"} />
+              </Panel>
+            </PanelGroup>
+          </Panel>
+        </PanelGroup>
       </div>
-
-      {/* <div className="pt-1">blahh</div> */}
     </div>
   );
 };

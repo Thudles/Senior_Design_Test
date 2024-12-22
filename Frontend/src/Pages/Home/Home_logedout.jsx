@@ -4,23 +4,34 @@ import { Reviews } from "../../components/Home/Reviews";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { Request } from "../../components/Home/Request";
 import { MenuLoggedout } from "../../components/Home/MenuLoggedout";
+import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 
 export const Home_logedout = () => {
   return (
     <div className="">
-      <div className="flex flex-col gap-2">
-        <Navbar />
-        <div className=" bg-white rounded-lg h-[calc(100vh-48px)]  p-2 overflow-y-auto w-[100%]">
-          <div className="grid gap-3 grid-cols-12 grid-rows-10 h-[calc(100vh-66px)]">
-            <div className=" col-span-12 row-span-6 overflow-hidden">
-              <MenuLoggedout />
-            </div>
-            <div className="grid grid-cols-4 gap-3 col-span-12 row-span-4 overflow-hidden">
-              <Request colspan={"col-span-2"} rowspan={"row-span-4"} />
-              <Reviews color={"bg-primary"} colspan={"col-span-2"} />
-            </div>
-          </div>
-        </div>
+      <Navbar title={"home"} />
+      <div className=" rounded-lg h-[calc(100vh-64px)] overflow-y-auto w-[100%] mt-[51px]">
+        <PanelGroup direction="vertical">
+          <Panel defaultSize={70}>
+            <Menu color={"bg-primary"} />
+          </Panel>
+
+          <PanelResizeHandle disabled={true} className="h-0.5" />
+
+          <Panel defaultSize={30}>
+            <PanelGroup direction="horizontal">
+              <Panel defaultSize={70}>
+                <Request colspan={"col-span-12"} rowspan={"row-span-3"} />
+              </Panel>
+
+              <PanelResizeHandle disabled={true} className="w-0.5" />
+
+              <Panel defaultSize={30}>
+                <Reviews color={"bg-secondary"} />
+              </Panel>
+            </PanelGroup>
+          </Panel>
+        </PanelGroup>
       </div>
     </div>
   );
