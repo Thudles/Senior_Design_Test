@@ -16,7 +16,7 @@ export default {
         secondary: "#ed3a51",
       },
       fontFamily: {
-        bubbly: ['"Bubblegum Sans"', "cursive"], // Add your font here
+        oi: ['"Oi"', "cursive"], // Add your font here
       },
     },
   },
