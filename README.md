@@ -1,7 +1,5 @@
 # Getting Started with HuskyDining
 
-## Available Scripts
-
 In the root directory, you can run:
 
 ### `npm run dev`
