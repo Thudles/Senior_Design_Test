@@ -1,6 +1,6 @@
 import React from "react";
 import { Menu } from "../../components/Home/Menu";
-import { Reviews } from "../../components/Home/Reviews";
+import { Transactions } from "../../components/Home/Transactions";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { Request } from "../../components/Home/Request";
 import { MenuLoggedout } from "../../components/Home/MenuLoggedout";
@@ -27,7 +27,7 @@ export const Home_logedout = () => {
               <PanelResizeHandle disabled={true} className="w-0.5" />
 
               <Panel defaultSize={30}>
-                <Reviews color={"bg-secondary"} />
+                <div className="rounded-lg bg-white p-3 text-white h-[100%]"></div>
               </Panel>
             </PanelGroup>
           </Panel>

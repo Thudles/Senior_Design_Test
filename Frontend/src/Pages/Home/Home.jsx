@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu } from "../../components/Home/Menu";
 import { Balance } from "../../components/Home/Balance";
-import { Reviews } from "../../components/Home/Reviews";
+import { Transactions } from "../../components/Home/Transactions";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { Request } from "../../components/Home/Request";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
@@ -57,7 +57,7 @@ export const Home = () => {
         <PanelGroup direction="horizontal">
           {/* Request and Menu Panels */}
           <Panel
-            defaultSize={75}
+            defaultSize={80}
             maxSize={SIZE_THRESHOLD + 1}
             onResize={(sizes) => {
               setOuterPanelSizes(sizes); // Track sizes of outer panels
@@ -65,7 +65,7 @@ export const Home = () => {
           >
             <PanelGroup direction="vertical">
               <Panel
-                defaultSize={80}
+                defaultSize={75}
                 maxSize={SIZE_THRESHOLD + 1}
                 onResize={(size) => setMenuPanelSize(size)}
               >
@@ -76,10 +76,10 @@ export const Home = () => {
                 />
               </Panel>
 
-              <PanelResizeHandle className="h-0.5" />
+              <PanelResizeHandle disabled={true} className="h-[3px]" />
 
               <Panel
-                defaultSize={20}
+                defaultSize={25}
                 maxSize={SIZE_THRESHOLD + 1}
                 onResize={(size) => setRequestPanelSize(size)}
               >
@@ -88,11 +88,11 @@ export const Home = () => {
             </PanelGroup>
           </Panel>
 
-          <PanelResizeHandle className="w-0.5" />
+          <PanelResizeHandle disabled={true} className="w-[3px]" />
 
           {/* Balance and Review Panels */}
           <Panel
-            defaultSize={25}
+            defaultSize={20}
             onResize={(sizes) => {
               setOuterPanelSize(sizes); // Track sizes of outer panels
             }}
@@ -100,21 +100,21 @@ export const Home = () => {
           >
             <PanelGroup direction="vertical">
               <Panel
-                defaultSize={67}
+                defaultSize={15}
                 maxSize={SIZE_THRESHOLD + 1}
                 onResize={(size) => setBalancePanelSize(size)}
               >
                 <Balance bgColor={"bg-secondary"} />
               </Panel>
 
-              <PanelResizeHandle className="h-0.5" />
+              <PanelResizeHandle disabled={true} className="h-[3px]" />
 
               <Panel
-                defaultSize={33}
+                defaultSize={85}
                 maxSize={SIZE_THRESHOLD + 1}
                 onResize={(size) => setReviewPanelSize(size)}
               >
-                <Reviews color={"bg-projblack"} />
+                <Transactions color={"bg-projblack"} />
               </Panel>
             </PanelGroup>
           </Panel>
