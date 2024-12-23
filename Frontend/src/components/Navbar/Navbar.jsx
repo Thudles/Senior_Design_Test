@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useLogoutMutation } from "../../slices/authApiSlice";
 import { logout } from "../../slices/authSlice";
+import { Link } from "react-router-dom";
 
 export const Navbar = ({ title }) => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -33,6 +34,11 @@ export const Navbar = ({ title }) => {
       <div className="flex gap-2">
         {/* <NavButton logo={<FaHome />} /> */}
         <NavLink link={"/"} title={title} />
+      </div>
+      <div>
+        <Link to={"/"} className="font-oi text-primary text-2xl">
+          HUSKY · DINING
+        </Link>
       </div>
       <div className="flex gap-2">
         <NavButton logo={<TfiLayoutPlaceholder />} />
