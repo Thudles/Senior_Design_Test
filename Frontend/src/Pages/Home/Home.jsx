@@ -4,7 +4,7 @@ import { Menu } from "../../components/Home/Menu";
 import { Balance } from "../../components/Home/Balance";
 import { Transactions } from "../../components/Home/Transactions";
 import { Navbar } from "../../components/Navbar/Navbar";
-import { Request } from "../../components/Home/Request";
+import { Review } from "../../components/Home/Reviews";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 
 export const Home = () => {
@@ -65,25 +65,22 @@ export const Home = () => {
           >
             <PanelGroup direction="vertical">
               <Panel
-                defaultSize={75}
+                defaultSize={80}
+                minSize={75}
                 maxSize={SIZE_THRESHOLD + 1}
                 onResize={(size) => setMenuPanelSize(size)}
               >
-                <Menu
-                  colspan={"col-span-12"}
-                  rowspan={"row-span-9"}
-                  color={"bg-primary"}
-                />
+                <Menu color={"bg-primary"} />
               </Panel>
 
-              <PanelResizeHandle disabled={true} className="h-[3px]" />
+              <PanelResizeHandle className="h-[3px]" />
 
               <Panel
-                defaultSize={25}
+                defaultSize={20}
                 maxSize={SIZE_THRESHOLD + 1}
                 onResize={(size) => setRequestPanelSize(size)}
               >
-                <Request colspan={"col-span-12"} rowspan={"row-span-3"} />
+                <Review bgcolor={"bg-black"} />
               </Panel>
             </PanelGroup>
           </Panel>
@@ -114,7 +111,7 @@ export const Home = () => {
                 maxSize={SIZE_THRESHOLD + 1}
                 onResize={(size) => setReviewPanelSize(size)}
               >
-                <Transactions color={"bg-projblack"} />
+                <Transactions color={"bg-[#87cefa]"} />
               </Panel>
             </PanelGroup>
           </Panel>
