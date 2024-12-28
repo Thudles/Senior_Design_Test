@@ -3,7 +3,7 @@ import User from "../models/userModel.js";
 import generataeToken from "../utils/genrerateToken.js";
 
 // @desc Auth user/set token
-// route POST /api/users/login
+// route POST /api/auth/login
 // @access Public
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -16,6 +16,8 @@ const loginUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      flexpass: user.flexpass,
+      points: user.points,
     });
   } else {
     res.status(401);
@@ -24,7 +26,7 @@ const loginUser = asyncHandler(async (req, res) => {
 });
 
 // @desc Register a new user
-// route POST /api/users
+// route POST /api/auth
 // @access Public
 const resgisterUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
@@ -68,7 +70,7 @@ const resgisterUser = asyncHandler(async (req, res) => {
 });
 
 // @desc Logout a user
-// route POST /api/users/logout
+// route POST /api/auth/logout
 // @access Public
 const logoutUser = asyncHandler(async (req, res) => {
   res.cookie("jwt", "", {
@@ -80,7 +82,7 @@ const logoutUser = asyncHandler(async (req, res) => {
 });
 
 // @desc Get user proflie
-// route GET /api/users/profile
+// route GET /api/auth/profile
 // @access Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = {
@@ -91,7 +93,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
 });
 
 // @desc Update user proflie
-// route PUT /api/users/profile
+// route PUT /api/auth/profile
 // @access Private
 const updateProfile = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "User profile" });
