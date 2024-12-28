@@ -2,12 +2,12 @@ import mongoose from "mongoose";
 
 const requestSchema = new mongoose.Schema(
   {
-    userId: {
+    userID: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User", // Reference to the User schema
       required: true,
     },
-    dinighallId: {
+    diningHallID: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "DiningHall", // Reference to the User schema
       required: true,
@@ -37,7 +37,7 @@ const requestSchema = new mongoose.Schema(
     priority: {
       type: String,
       enum: ["low", "medium", "high"], // Priority level
-      default: "low",
+      default: "medium",
     },
   },
   {
