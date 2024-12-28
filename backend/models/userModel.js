@@ -16,6 +16,14 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    flexpass: {
+      type: Number,
+      default: 25,
+    },
+    points: {
+      type: Number,
+      default: 500,
+    },
   },
   {
     timestamps: true,
