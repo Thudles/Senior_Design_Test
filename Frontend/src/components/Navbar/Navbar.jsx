@@ -30,19 +30,19 @@ export const Navbar = ({ title }) => {
   };
 
   return (
-    <div className="fixed left-0 right-0 top-0 z-50 flex h-[50px] items-center justify-between border-b-2 border-neutral-950 bg-white px-2">
-      <div className="flex gap-2">
+    <div className="fixed left-0 right-0 top-0 z-50 h-[50px] items-center border-b-2 border-neutral-950 bg-white px-2">
+      <div className="float-left absolute top-1/2  -translate-y-1/2">
         {/* <NavButton logo={<FaHome />} /> */}
         <NavLink link={"/"} title={title} />
       </div>
-      <div>
-        <Link to={"/"} className="font-oi text-primary text-2xl">
+      <div className="float-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <Link to={"/"} className="font-oi text-primary text-2xl tracking-wider">
           HUSKY · DINING
         </Link>
       </div>
-      <div className="flex gap-2">
-        <NavButton logo={<TfiLayoutPlaceholder />} />
-        <NavButton logo={<TfiLayoutPlaceholder />} />
+      <div className="float-right mt-[10px] flex gap-2">
+        {userInfo && <NavButton logo={`${userInfo.flexpass} Flexpasses`} />}
+        {userInfo && <NavButton logo={`${userInfo.points} Points`} />}
         {userInfo ? (
           <NavButton onClick={logoutHandler} logo={"Logout"} />
         ) : (
