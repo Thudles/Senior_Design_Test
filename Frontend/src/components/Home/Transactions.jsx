@@ -2,12 +2,6 @@ import React from "react";
 import { useGetUserRequestsQuery } from "../../slices/requestApiSlice";
 import { useSelector } from "react-redux";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
-import useEmblaCarousel from "embla-carousel-react";
-import {
-  PrevButton,
-  NextButton,
-  usePrevNextButtons,
-} from "../Utilities/carouselControls";
 
 export const Transactions = ({ color }) => {
   const { userInfo } = useSelector((state) => state.auth);
