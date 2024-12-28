@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar } from "../components/Navbar/Navbar";
-import request from "../Data/request";
+import request from "../../../backend/Data/dummyRequest";
 
 export const Request = () => {
   return (
