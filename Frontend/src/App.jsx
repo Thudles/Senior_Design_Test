@@ -20,7 +20,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="p-1.5">
+    <div className="">
       <ToastContainer />
       <Outlet />
     </div>

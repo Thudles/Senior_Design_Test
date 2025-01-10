@@ -14,7 +14,7 @@ import { Login } from "./Pages/Login";
 import { Register } from "./Pages/Register";
 import { Home_logedout } from "./Pages/Home/Home_logedout";
 import { useSelector } from "react-redux";
-import PrivateRoute from "./components/PrivateRoute";
+import { PrivateRoute, PrivateRouteDashboard } from "./components/PrivateRoute";
 
 const AppRoutes = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -22,16 +22,16 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<App />}>
-        <Route index element={userInfo ? <Home /> : <Home_logedout />} />
+        <Route index element={<Home_logedout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {/* Private Route */}
-        <Route path="" element={<PrivateRoute />}>
-          <Route path="account" element={<Account />} />
-        </Route>
         <Route path="/menu" element={<Menu />} />
         <Route path="/transaction" element={<Transactions />} />
         <Route path="/request" element={<Request />} />
+        {/* Private Route */}
+        <Route path="" element={<PrivateRouteDashboard />}>
+          <Route path="/dashboard/:id" element={<Account />} />
+        </Route>
       </Route>
       {/* Redirect all other routes */}
       <Route path="*" element={<Navigate to="/" />} />

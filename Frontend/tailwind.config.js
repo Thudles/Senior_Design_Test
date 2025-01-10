@@ -3,11 +3,15 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        "custom-gradient":
+          "linear-gradient(45deg, rgb(95, 20, 224), rgb(155, 105, 241))",
+      },
       container: {
         center: true,
         padding: {
           DEFAULT: "1rem",
-          sm: "3rem",
+          sm: "1rem",
         },
       },
       colors: {
