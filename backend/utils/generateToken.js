@@ -4,7 +4,7 @@ import { redis } from "../config/redis.js";
 
 const generateToken = (res, userId) => {
   const accessToken = jwt.sign({ userId }, process.env.JWT_SECRET, {
-    expiresIn: "1m",
+    expiresIn: "15m",
   });
 
   const refreshToken = jwt.sign({ userId }, process.env.JWT_SECRET, {
