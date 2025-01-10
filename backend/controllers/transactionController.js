@@ -1,13 +1,19 @@
 import asyncHandler from "express-async-handler";
-import Request from "../models/requestModel.js";
+import User from "../models/userModel.js";
 import mongoose from "mongoose";
 
-
-// @desc User Transaction
-// route GET /api/transaction
+// @desc User Request Transaction
+// route GET /api/transaction/request
 // @access Private
-const transactionHistory = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: "Transaction" });
+const requestTransaction = asyncHandler(async (req, res) => {
+  res.status(200).json({ message: "request" });
 });
 
-export { transactionHistory };
+// @desc User Donate Transaction
+// route GET /api/transaction/donate
+// @access Private
+const donateTransaction = asyncHandler(async (req, res) => {
+  res.status(200).json({ message: "donate" });
+});
+
+export { requestTransaction, donateTransaction };

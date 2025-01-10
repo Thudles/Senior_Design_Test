@@ -1,5 +1,6 @@
 import { apiSlice } from "./apiSlice";
 const AUTH_URL = "/api/auth";
+const BALANCE_URL = "/api/balance";
 
 export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -23,8 +24,25 @@ export const authApiSlice = apiSlice.injectEndpoints({
         method: "POST",
       }),
     }),
+    getUserProfile: builder.query({
+      query: () => ({
+        url: `${AUTH_URL}/profile`,
+        method: "GET",
+      }),
+    }),
+    getBalance: builder.query({
+      query: (userID) => ({
+        url: `${BALANCE_URL}/${userID}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useLogoutMutation, useRegisterMutation } =
-  authApiSlice;
+export const {
+  useLoginMutation,
+  useLogoutMutation,
+  useRegisterMutation,
+  useGetUserProfileQuery,
+  useGetBalanceQuery,
+} = authApiSlice;

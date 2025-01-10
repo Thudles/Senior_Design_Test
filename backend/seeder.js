@@ -4,6 +4,7 @@ import colors from "colors";
 import request from "./Data/dummyRequest.js";
 import diningHall from "./Data/dummyDiningHall.js";
 import reviews from "./Data/dummyReviews.js";
+import users from "./Data/dummyUsers.js";
 import Request from "./models/requestModel.js";
 import DiningHall from "./models/diningHallModel.js";
 import Review from "./models/reviewModel.js";
@@ -15,10 +16,12 @@ connectDB();
 
 const importData = async () => {
   try {
+    await User.deleteMany();
     await DiningHall.deleteMany();
     await Request.deleteMany();
     await Review.deleteMany();
 
+    const createdUsers = await User.create(users);
     const createdDiningHall = await DiningHall.insertMany(diningHall);
 
     // Function to get a random dining hall ID
@@ -27,16 +30,10 @@ const importData = async () => {
       return createdDiningHall[randomIndex]._id;
     };
 
-    // Fetch existing users
-    const users = await User.find();
-    if (users.length === 0) {
-      throw new Error("No users found. Please seed users first.");
-    }
-
     // Helper function to get a random user ID
     const getRandomUserID = () => {
-      const randomIndex = Math.floor(Math.random() * users.length);
-      return users[randomIndex]._id;
+      const randomIndex = Math.floor(Math.random() * createdUsers.length);
+      return createdUsers[randomIndex]._id;
     };
 
     const sampleRequest = request.map((req) => {
@@ -57,6 +54,7 @@ const importData = async () => {
 
     await Request.insertMany(sampleRequest);
     await Review.insertMany(sampleReview);
+
     console.log("Data Imported".green.inverse);
     process.exit();
   } catch (error) {
@@ -67,11 +65,12 @@ const importData = async () => {
 
 const destroyData = async () => {
   try {
+    await User.deleteMany();
     await DiningHall.deleteMany();
     await Request.deleteMany();
     await Review.deleteMany();
 
-    console.log("Data Destroyed".green.inverse);
+    console.log("Data Destroyed".red.inverse);
     process.exit();
   } catch (error) {
     console.error(`${error}`.red.inverse);

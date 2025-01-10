@@ -5,12 +5,10 @@ const requestSchema = new mongoose.Schema(
     userID: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User", // Reference to the User schema
-      required: true,
     },
     diningHallID: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "DiningHall", // Reference to the User schema
-      required: true,
     },
     type: {
       type: String,
@@ -22,12 +20,6 @@ const requestSchema = new mongoose.Schema(
       required: true,
       min: 1,
       max: 3,
-    },
-    description: {
-      type: String,
-      required: true,
-      trim: true,
-      maxlength: 250, // Limit the length of the description
     },
     status: {
       type: String,

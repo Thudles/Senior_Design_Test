@@ -2,10 +2,12 @@ import jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 
-const protect = asyncHandler(async (req, res, next) => {
-  let token;
+export const protect = asyncHandler(async (req, res, next) => {
+  const authHeader = req.headers.authorization || req.headers.Authorization;
 
-  token = req.cookies.jwt;
+  if (!authHeader?.startsWith("Bearer ")) return res.sendStatus(401);
+
+  const token = authHeader.split(" ")[1];
 
   if (token) {
     try {
@@ -18,9 +20,7 @@ const protect = asyncHandler(async (req, res, next) => {
       throw new Error("Not authorized, invalid token");
     }
   } else {
-    res.status(401);
+    res.status(403);
     throw new Error("Not authorized, no token");
   }
 });
-
-export { protect };
