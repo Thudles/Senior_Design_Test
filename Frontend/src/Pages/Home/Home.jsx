@@ -80,7 +80,7 @@ export const Home = () => {
                 maxSize={SIZE_THRESHOLD + 1}
                 onResize={(size) => setRequestPanelSize(size)}
               >
-                <Review bgcolor={"bg-black"} />
+                <Review bgcolor={"bg-projblack"} />
               </Panel>
             </PanelGroup>
           </Panel>

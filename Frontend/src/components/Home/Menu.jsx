@@ -7,12 +7,40 @@ import axios from "axios";
 
 export const Menu = ({ color }) => {
   const { data: requests = [], isLoading, isError } = useGetRequestsQuery();
+  const [panelSizes, setPanelSizes] = useState([80, 10, 10]);
+
+  const handleClick = (panelIndex) => {
+    const newSizes = panelSizes.map((_, index) =>
+      index === panelIndex ? 80 : 20 / (panelSizes.length - 1)
+    );
+    setPanelSizes(newSizes);
+  };
 
   return (
     <div className={`${color} rounded-lg  p-3 h-[100%] text-white`}>
       <PanelGroup direction="vertical" className="rounded-md">
         <Panel defaultSize={85}>
-          <div className="h-[100%]"></div>
+          <PanelGroup direction="horizontal">
+            {panelSizes.map((size, index) => (
+              <React.Fragment key={index}>
+                <Panel
+                  defaultSize={size}
+                  style={{ flexGrow: size }}
+                  className="bg-[#9b69f1] rounded-md "
+                >
+                  <div
+                    onClick={() => handleClick(index)}
+                    className="cursor-pointer p-4 h-[100%] text-white"
+                  >
+                    Panel {index + 1}
+                  </div>
+                </Panel>
+                {index < panelSizes.length - 1 && (
+                  <PanelResizeHandle className="w-1 bg-primary" />
+                )}
+              </React.Fragment>
+            ))}
+          </PanelGroup>
         </Panel>
 
         <PanelResizeHandle className="h-2" />

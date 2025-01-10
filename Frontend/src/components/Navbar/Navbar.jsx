@@ -41,8 +41,8 @@ export const Navbar = ({ title }) => {
         </Link>
       </div>
       <div className="float-right mt-[10px] flex gap-2">
-        {userInfo && <NavButton logo={`${userInfo.flexpass} Flexpasses`} />}
-        {userInfo && <NavButton logo={`${userInfo.points} Points`} />}
+        {/* {userInfo && <NavButton logo={`${userInfo.flexpass} Flexpasses`} />}
+        {userInfo && <NavButton logo={`${userInfo.points} Points`} />} */}
         {userInfo ? (
           <NavButton onClick={logoutHandler} logo={"Logout"} />
         ) : (
