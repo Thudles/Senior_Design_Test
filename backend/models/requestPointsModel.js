@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const requestSchema = new mongoose.Schema(
+const requestPointsSchema = new mongoose.Schema(
   {
     userID: {
       type: mongoose.Schema.Types.ObjectId,
@@ -10,16 +10,11 @@ const requestSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "DiningHall", // Reference to the User schema
     },
-    type: {
-      type: String,
-      enum: ["flexpass", "points"], // Types of requests
-      required: true,
-    },
     amount: {
       type: Number,
       required: true,
       min: 1,
-      max: 3,
+      max: 500,
     },
     status: {
       type: String,
@@ -37,6 +32,6 @@ const requestSchema = new mongoose.Schema(
   }
 );
 
-const Request = mongoose.model("Request", requestSchema);
+const RequestPoints = mongoose.model("RequestPoints", requestPointsSchema);
 
-export default Request;
+export default RequestPoints;

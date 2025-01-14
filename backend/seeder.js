@@ -5,7 +5,8 @@ import request from "./Data/dummyRequest.js";
 import diningHall from "./Data/dummyDiningHall.js";
 import reviews from "./Data/dummyReviews.js";
 import users from "./Data/dummyUsers.js";
-import Request from "./models/requestModel.js";
+import RequestFlex from "./models/requestFlexModel.js";
+import RequestPoints from "./models/requestPointsModel.js";
 import DiningHall from "./models/diningHallModel.js";
 import Review from "./models/reviewModel.js";
 import User from "./models/userModel.js";
@@ -18,7 +19,8 @@ const importData = async () => {
   try {
     await User.deleteMany();
     await DiningHall.deleteMany();
-    await Request.deleteMany();
+    await RequestFlex.deleteMany();
+    await RequestPoints.deleteMany();
     await Review.deleteMany();
 
     const createdUsers = await User.create(users);
@@ -52,7 +54,7 @@ const importData = async () => {
       };
     });
 
-    await Request.insertMany(sampleRequest);
+    await RequestFlex.insertMany(sampleRequest);
     await Review.insertMany(sampleReview);
 
     console.log("Data Imported".green.inverse);
@@ -67,7 +69,8 @@ const destroyData = async () => {
   try {
     await User.deleteMany();
     await DiningHall.deleteMany();
-    await Request.deleteMany();
+    await RequestFlex.deleteMany();
+    await RequestPoints.deleteMany();
     await Review.deleteMany();
 
     console.log("Data Destroyed".red.inverse);

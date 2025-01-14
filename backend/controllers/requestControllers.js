@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler";
-import Request from "../models/requestModel.js";
+import RequestFlex from "../models/requestFlexModel.js";
 
 // @desc User Requests
 // route GET /api/request
@@ -11,7 +11,7 @@ const getRequest = asyncHandler(async (req, res) => {
   const skip = (page - 1) * limit;
 
   // Fetch paginated data
-  const requests = await Request.find().skip(skip).limit(Number(limit));
+  const requests = await RequestFlex.find().skip(skip).limit(Number(limit));
 
   res.json(requests);
 });
@@ -20,7 +20,7 @@ const getRequest = asyncHandler(async (req, res) => {
 // route GET /api/request:id
 // @access Public
 const getUserRequest = asyncHandler(async (req, res) => {
-  const requests = await Request.find({ userID: req.params.id });
+  const requests = await RequestFlex.find({ userID: req.params.id });
 
   if (!requests) {
     res.status(404).json({ message: "Request not found" });
@@ -35,10 +35,9 @@ const getUserRequest = asyncHandler(async (req, res) => {
 const createRequest = asyncHandler(async (req, res) => {
   const { userID, diningHallID, type, amount, description } = req.body;
 
-  const newRequest = await Request.create({
+  const newRequest = await RequestFlex.create({
     userID,
     diningHallID,
-    type,
     amount,
     description,
   });
