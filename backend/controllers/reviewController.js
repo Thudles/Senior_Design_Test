@@ -5,8 +5,15 @@ import Review from "../models/reviewModel.js";
 // route GET /api/review
 // @access Public
 const getReviews = asyncHandler(async (req, res) => {
-  const reviews = await Review.find({});
-  res.status(200).json(reviews);
+  const { page, limit } = req.query;
+
+  // Calculate the number of documents to skip
+  const skip = (page - 1) * limit;
+
+  // Fetch paginated data
+  const reviews = await Review.find().skip(skip).limit(Number(limit));
+
+  res.json(reviews);
 });
 
 export { getReviews };

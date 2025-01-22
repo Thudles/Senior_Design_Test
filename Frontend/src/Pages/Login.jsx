@@ -43,7 +43,7 @@ export const Login = () => {
 
   return (
     <div
-      className="bg-projblack rounded-xl h-[calc(100vh-16px)] flex items-center justify-center"
+      className="bg-projblack h-[100vh] flex items-center justify-center"
       style={{
         background:
           "linear-gradient(45deg, rgb(95, 20, 224), rgb(155, 105, 241))",

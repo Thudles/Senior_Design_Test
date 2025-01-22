@@ -4,7 +4,7 @@ import { redis } from "../config/redis.js";
 
 const generateToken = (res, userId) => {
   const accessToken = jwt.sign({ userId }, process.env.JWT_SECRET, {
-    expiresIn: "15m",
+    expiresIn: "1m",
   });
 
   const refreshToken = jwt.sign({ userId }, process.env.JWT_SECRET, {
@@ -17,7 +17,7 @@ const generateToken = (res, userId) => {
     httpOnly: true,
     secure: process.env.NODE_ENV !== "development",
     sameSite: "strict",
-    maxAge: 15 * 60 * 1000,
+    maxAge: 1 * 60 * 1000,
   });
 
   res.cookie("refreshToken", refreshToken, {

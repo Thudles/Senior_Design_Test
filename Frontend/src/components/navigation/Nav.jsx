@@ -34,6 +34,31 @@ const LinksOverlay = () => {
 };
 
 const LinksContainer = () => {
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const LINKS = [
+    {
+      title: "home",
+      href: "/",
+    },
+    {
+      title: "request",
+      href: "/request",
+    },
+    {
+      title: "donate",
+      href: "/donate",
+    },
+    {
+      title: "dashboard",
+      href: `/dashboard/${userInfo?._id}`,
+    },
+    {
+      title: "about",
+      href: "/about",
+    },
+  ];
+
   return (
     <motion.div className="space-y-4 p-12 pl-4 md:pl-20">
       {LINKS.map((l, idx) => {
@@ -164,30 +189,6 @@ const FooterCTAs = () => {
 
   return (
     <>
-      <div className="absolute bottom-6 left-6 flex gap-4 md:flex-col">
-        {SOCIAL_CTAS.map((l, idx) => {
-          return (
-            <motion.a
-              key={idx}
-              href={l.href}
-              initial={{ opacity: 0, y: -8 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: {
-                  delay: 1 + idx * 0.125,
-                  duration: 0.5,
-                  ease: "easeInOut",
-                },
-              }}
-              exit={{ opacity: 0, y: -8 }}
-            >
-              <l.Component className="text-xl text-white transition-colors hover:text-indigo-300" />
-            </motion.a>
-          );
-        })}
-      </div>
-
       {userInfo ? (
         <motion.button
           initial={{ opacity: 0, y: 8 }}
@@ -230,25 +231,6 @@ const FooterCTAs = () => {
     </>
   );
 };
-
-const LINKS = [
-  {
-    title: "home",
-    href: "/login",
-  },
-  {
-    title: "features",
-    href: "/dashboard/:id",
-  },
-  {
-    title: "blog",
-    href: "#",
-  },
-  {
-    title: "careers",
-    href: "#",
-  },
-];
 
 const SOCIAL_CTAS = [
   {
